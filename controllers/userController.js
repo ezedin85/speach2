@@ -62,7 +62,7 @@ const getMe = async (req, res)=>{
 
 const getUsers = async (req, res)=>{
     let {page} = req.query
-    const users = await userModel.find({}).skip(page? (page - 1) * 20 : 0).limit(20)
+    const users = await userModel.find({}).sort("-createdAt").skip(page? (page - 1) * 20 : 0).limit(20)
     res.json(users)
 }
 

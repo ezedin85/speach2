@@ -19,7 +19,7 @@ router.get('/me', userAuth, getMe)
 //private --- /api/user/me
 router.patch('/me', userAuth, updateMe)
 
-//private --- /api/user/publicInfo
+//public --- /api/user/publicInfo
 router.get('/publicInfo', getPublicInfo)
 
 //private --- /api/user/6475d4bba3462ef7387ca2d5

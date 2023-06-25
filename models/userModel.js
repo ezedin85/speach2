@@ -55,17 +55,19 @@ userSchema.statics.signup = async function (contact, password, confirmPwd, fullN
         throw Error("Contact already in use")
     }
 
-    if(!validator.isStrongPassword(password)){
-        throw Error("Not a strong password")
-    }
+    //removed to make the registration easy
+    // if(!validator.isStrongPassword(password)){
+    //     throw Error("Not a strong password")
+    // }
 
     if(password !== confirmPwd){
         throw Error("passwords don't match")
     }
 
-    if(!validator.isEmail(email)){
-        throw Error("not a valid email")
-    }
+    //removed to make the registration easy
+    // if(!validator.isEmail(email)){
+    //     throw Error("not a valid email")
+    // }
 
     //check if level is not 3 or 4
     if(level == '3' || level == '4'){

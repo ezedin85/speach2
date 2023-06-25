@@ -14,7 +14,7 @@ const adminAuth = async (req, res, next)=>{
         await adminModel.findOne({_id: id})//why
         next()
     } catch (error) {
-        res.json({error: "request isn't authorized"})
+        res.status(401).json({error: "request isn't authorized"})
     }
 }
 

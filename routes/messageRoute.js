@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
 const messageModel = require("../models/messageModel");
+const adminAuth = require('../middlewares/requireAdminAuth')
 const express = require('express')
 const router = express.Router()
 
+
 // private --- /api/message
-router.get('/', async(req, res)=>{
+router.get('/', adminAuth, async(req, res)=>{
     const messages = await messageModel.find({})
     res.json(messages)
 })
@@ -23,7 +25,7 @@ router.post('/', async (req,res)=>{
     }
 })
 
-router.delete('/:id', async (req,res)=>{
+router.delete('/:id', adminAuth, async (req,res)=>{
     const {id} = req.params
     if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(400).json({error: "not a valid id"})
